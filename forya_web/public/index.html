@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Forya — Reserve in Seconds</title>
+<meta name="description" content="Forya is the reservation app for gaming centers: find open seats nearby, book instantly, and pay from your wallet.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-view="home">
+
+<header>
+  <nav class="wrap">
+    <div class="logo">
+      <div class="logo-mark">
+        <img src="logo.png" alt="Forya Logo" style="width:100%; height:100%; object-fit:cover; border-radius:inherit;">
+      </div>
+      Forya
+    </div>
+
+    <ul class="nav-links" data-view-home>
+      <li><a href="#home-features">Features</a></li>
+      <li><a href="#home-how">How it works</a></li>
+      <li><a href="#home-product">The app</a></li>
+    </ul>
+    <ul class="nav-links" data-view-dashboard hidden>
+      <li><a href="#features">Features</a></li>
+      <li><a href="#how">How it works</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+    </ul>
+
+    <div class="nav-cta">
+      <a href="forya-landing-ar.html" class="btn btn-ghost lang-toggle" style="padding: 11px; font-size: 13px;">العربية</a>
+      <button class="btn btn-ghost" data-view-home onclick="switchView('dashboard')">For gaming centers</button>
+      <button class="btn btn-ghost" data-view-dashboard hidden onclick="switchView('home')">For players</button>
+      <a href="#home-product" class="btn btn-primary" data-view-home>Get the app</a>
+      <a href="#pricing" class="btn btn-primary" data-view-dashboard hidden>Start free trial</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+
+<!-- ============================= PAGE: HOME (player app) ============================= -->
+<div id="page-home">
+
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow">The gaming reservation app</span>
+        <h1>Find your seat. <span class="accent">Book in seconds.</span></h1>
+        <p class="lead">Forya shows you every open station at gaming centers near you. Reserve instantly, pay straight from your wallet, and skip the line at the door.</p>
+        <div class="hero-actions">
+          <a href="#home-product" class="btn btn-primary">Get Forya — iOS</a>
+          <a href="#home-product" class="btn btn-dark">Get Forya — Android</a>
+        </div>
+        <div class="hero-tag-ar">
+          <span class="ar">فورية — احجز مكانك في ثواني</span>
+          <span class="en">Built in Egypt, for Egypt's gaming centers</span>
+        </div>
+        <div class="trust-bar">
+          <span class="trust-label">Live at gaming centers across Cairo &amp; Giza</span>
+          <div class="trust-logos">
+            <span>Cyber Nova</span>
+            <span>Game Zone</span>
+            <span>Elite Gaming</span>
+            <span>Vortex</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="station-panel">
+        <div class="station-panel-head">
+          <span>CYBER NOVA — TONIGHT</span>
+          <span class="live-dot"><span class="pulse"></span>LIVE</span>
+        </div>
+        <div class="station-grid" id="stationGridHome"></div>
+        <div class="station-panel-foot">
+          <span>18 seats open now</span>
+          <span>Reserve in <b>&lt;1 min</b></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="home-features">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Everything before you leave the house</span>
+        <h2>Know before you go.</h2>
+        <p>No more showing up to a full center. See what's open, book it, and walk straight to your seat.</p>
+      </div>
+
+      <div class="features">
+        <div class="feature">
+          <div class="ico">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="7" height="7" rx="1.5" stroke="#4ADE80" stroke-width="1.6"/><rect x="14" y="3" width="7" height="7" rx="1.5" stroke="#4ADE80" stroke-width="1.6"/><rect x="3" y="14" width="7" height="7" rx="1.5" stroke="#4ADE80" stroke-width="1.6"/><rect x="14" y="14" width="7" height="7" rx="1.5" fill="#4ADE80"/></svg>
+          </div>
+          <h3>Live seat map</h3>
+          <p>See every open station at a center in real time, before you leave the house.</p>
+        </div>
+        <div class="feature">
+          <div class="ico">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 3l2.4 6.6L21 12l-6.6 2.4L12 21l-2.4-6.6L3 12l6.6-2.4L12 3z" stroke="#4ADE80" stroke-width="1.6" stroke-linejoin="round"/></svg>
+          </div>
+          <h3>Instant booking</h3>
+          <p>Reserve a seat in a few taps. No calls, no waiting on hold to check availability.</p>
+        </div>
+        <div class="feature">
+          <div class="ico">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="18" height="13" rx="2.5" stroke="#4ADE80" stroke-width="1.6"/><path d="M3 10h18" stroke="#4ADE80" stroke-width="1.6"/><circle cx="7" cy="14.5" r="1.2" fill="#4ADE80"/></svg>
+          </div>
+          <h3>Wallet & points</h3>
+          <p>1 EGP = 1 point. Top up once, then pay for every session straight from your balance.</p>
+        </div>
+        <div class="feature">
+          <div class="ico">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 3.5l2.5 5.6 6.1.6-4.6 4.1 1.3 6-5.3-3.2-5.3 3.2 1.3-6-4.6-4.1 6.1-.6L12 3.5z" stroke="#4ADE80" stroke-width="1.6" stroke-linejoin="round"/></svg>
+          </div>
+          <h3>Ratings & reviews</h3>
+          <p>Find centers your friends actually recommend, rated by players nearby.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="home-how">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Three steps</span>
+        <h2>From tap to seat, before you're out the door.</h2>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <span class="num">01</span>
+          <h3>Find a center</h3>
+          <p>Browse gaming centers near you and see live seat availability at each one.</p>
+        </div>
+        <div class="step">
+          <span class="num">02</span>
+          <h3>Reserve your seat</h3>
+          <p>Pick a station and a time, then confirm right in the app.</p>
+        </div>
+        <div class="step">
+          <span class="num">03</span>
+          <h3>Walk in and play</h3>
+          <p>Show your booking at the counter and get straight to your seat.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Why Forya</span>
+        <h2>Built around how you actually play.</h2>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-copy">
+          <p>Forya started with a familiar frustration: showing up to your usual gaming center after class or work, only to find every seat taken. So we asked centers to publish their seats in real time — the same way you'd check if a table's free before driving across town.</p>
+          <p>Now, whether you're squeezing in a quick match solo or organizing a weekend tournament with friends, the booking part stays out of the way. Open the app, see what's actually open right now, and reserve it before someone else does.</p>
+        </div>
+
+        <div class="about-list">
+          <div class="about-item">
+            <div class="chk">✓</div>
+            <div>
+              <h4>Real-time seats, not estimates</h4>
+              <p>Every open station updates the second someone else books it — no calling ahead to double-check.</p>
+            </div>
+          </div>
+          <div class="about-item">
+            <div class="chk">✓</div>
+            <div>
+              <h4>One wallet, every center</h4>
+              <p>Top up once and spend it at any gaming center on Forya — no separate balance per venue.</p>
+            </div>
+          </div>
+          <div class="about-item">
+            <div class="chk">✓</div>
+            <div>
+              <h4>No wasted trips</h4>
+              <p>Check what's actually available before you leave the house, not after you get there.</p>
+            </div>
+          </div>
+          <div class="about-item">
+            <div class="chk">✓</div>
+            <div>
+              <h4>Built for Egypt</h4>
+              <p>Arabic-first design, EGP pricing, and centers live across Cairo &amp; Giza.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="home-product">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">The app</span>
+        <h2>Your gaming center, in your pocket.</h2>
+        <p>Browse nearby centers, book a seat, and manage your wallet — all in one place.</p>
+      </div>
+
+      <div class="showcase">
+        <div class="mock-card mock-dashboard">
+          <div class="mock-top"><span></span><span></span><span></span></div>
+          <div class="mock-row">
+            <div class="who"><div class="mock-avatar"></div>Cyber Nova · 1.2 km</div>
+            <span class="status status-confirmed">12 open</span>
+          </div>
+          <div class="mock-row">
+            <div class="who"><div class="mock-avatar"></div>Game Zone Maadi · 2.0 km</div>
+            <span class="status status-pending">3 open</span>
+          </div>
+          <div class="mock-row">
+            <div class="who"><div class="mock-avatar"></div>Elite Gaming · 3.4 km</div>
+            <span class="status status-full">Full</span>
+          </div>
+          <div class="mock-row">
+            <div class="who"><div class="mock-avatar"></div>Vortex Café · 4.1 km</div>
+            <span class="status status-confirmed">7 open</span>
+          </div>
+        </div>
+
+        <div class="mock-card mock-phone">
+          <div style="display:flex; flex-direction:column; align-items:center; gap:20px; width:100%;">
+          <div class="phone-frame phone-frame-slideshow">
+            <div class="p-head"><span>9:41</span><span>FORYA</span></div>
+            <div class="slide-stage" id="phoneHomeStage">
+              <div class="slide active"><img src="explore.jpeg" alt="Explore"></div>
+              <div class="slide"><img src="map.jpeg" alt="Live Map"></div>
+              <div class="slide"><img src="past booking.jpeg" alt="Booking Confirmed"></div>
+              <div class="slide"><img src="wallet.jpeg" alt="Wallet"></div>
+            </div>
+            <div class="slide-dots" id="phoneHomeDots">
+              <span class="d active"></span><span class="d"></span><span class="d"></span><span class="d"></span>
+            </div>
+          </div>
+          <div class="phone-captions" id="phoneHomeCaptions">
+            <div class="c active">Explore nearby centers</div>
+            <div class="c">Live station map</div>
+            <div class="c">Instant booking confirmation</div>
+            <div class="c">Forya smart wallet</div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="cta-banner">
+        <h2>Ready to skip the line tonight?</h2>
+        <p>Reserve your seat before the queue starts.</p>
+        <div class="hero-actions">
+          <a href="#home-product" class="btn btn-primary">Get Forya — iOS</a>
+          <a href="#home-product" class="btn btn-dark">Get Forya — Android</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- ============================= PAGE: DASHBOARD (gaming center owners) ============================= -->
+<div id="page-dashboard" hidden>
+
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow">Reservation system for gaming centers</span>
+        <h1>Every seat, <span class="accent">booked in seconds.</span></h1>
+        <p class="lead">Forya gives your gaming center a live station map, instant reservations, and a wallet your regulars already trust — so you spend less time on the phone and more time running the floor.</p>
+        <div class="hero-actions">
+          <a href="#pricing" class="btn btn-primary">Start free trial</a>
+          <a href="#product" class="btn btn-dark">See how it works</a>
+        </div>
+        <div class="hero-tag-ar">
+          <span class="ar">فورية — احجز مكانك في ثواني</span>
+          <span class="en">Built in Egypt, for Egypt's gaming centers</span>
+        </div>
+        <div class="trust-bar">
+          <span class="trust-label">Trusted by gaming centers running on Forya</span>
+          <div class="trust-logos">
+            <span>Cyber Nova</span>
+            <span>Game Zone</span>
+            <span>Elite Gaming</span>
+            <span>Vortex</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="station-panel">
+        <div class="station-panel-head">
+          <span>LIVE STATION MAP</span>
+          <span class="live-dot"><span class="pulse"></span>LIVE</span>
+        </div>
+        <div class="station-grid" id="stationGridDash"></div>
+        <div class="station-panel-foot">
+          <span>24 / 32 occupied</span>
+          <span><b>+6</b> booked this hour</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="features">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Everything on one screen</span>
+        <h2>Run the whole center from your counter.</h2>
+        <p>No more sticky notes and phone tallies — one dashboard for bookings, stations, and payments.</p>
+      </div>
+
+      <div class="features">
+        <div class="feature">
+          <div class="ico">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="7" height="7" rx="1.5" stroke="#4ADE80" stroke-width="1.6"/><rect x="14" y="3" width="7" height="7" rx="1.5" stroke="#4ADE80" stroke-width="1.6"/><rect x="3" y="14" width="7" height="7" rx="1.5" stroke="#4ADE80" stroke-width="1.6"/><rect x="14" y="14" width="7" height="7" rx="1.5" fill="#4ADE80"/></svg>
+          </div>
+          <h3>Live station map</h3>
+          <p>See every seat's status in real time — open, booked, or in session — and click straight into a reservation.</p>
+        </div>
+        <div class="feature">
+          <div class="ico">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 3l2.4 6.6L21 12l-6.6 2.4L12 21l-2.4-6.6L3 12l6.6-2.4L12 3z" stroke="#4ADE80" stroke-width="1.6" stroke-linejoin="round"/></svg>
+          </div>
+          <h3>Instant reservations</h3>
+          <p>Players book a station in a few taps from the app. Confirmations land on your dashboard immediately — no calls back and forth.</p>
+        </div>
+        <div class="feature">
+          <div class="ico">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="18" height="13" rx="2.5" stroke="#4ADE80" stroke-width="1.6"/><path d="M3 10h18" stroke="#4ADE80" stroke-width="1.6"/><circle cx="7" cy="14.5" r="1.2" fill="#4ADE80"/></svg>
+          </div>
+          <h3>Wallet & points</h3>
+          <p>1 EGP = 1 point. Players top up in person or online, and pay for sessions straight out of their balance.</p>
+        </div>
+        <div class="feature">
+          <div class="ico">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 19V10M12 19V5M20 19v-7" stroke="#4ADE80" stroke-width="1.6" stroke-linecap="round"/></svg>
+          </div>
+          <h3>Owner dashboard & reports</h3>
+          <p>Track occupancy, revenue, and your busiest hours by station and by worker shift — all from one screen.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="how">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Three steps</span>
+        <h2>From tap to session, in under a minute.</h2>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <span class="num">01</span>
+          <h3>Player picks a seat</h3>
+          <p>They browse your live map in the app and reserve a station for the time they want.</p>
+        </div>
+        <div class="step">
+          <span class="num">02</span>
+          <h3>You confirm on the dashboard</h3>
+          <p>The booking appears instantly. Walk-ins get added the same way, right from the counter.</p>
+        </div>
+        <div class="step">
+          <span class="num">03</span>
+          <h3>Wallet settles automatically</h3>
+          <p>Session cost is deducted from the player's points balance — nothing to reconcile by hand.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="product">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Built for the counter and the couch</span>
+        <h2>One system, two views.</h2>
+        <p>Your team manages the floor from the dashboard. Your players book from their phone.</p>
+      </div>
+
+      <div class="showcase">
+        <div class="mock-card" style="padding:16px;">
+          <div class="desktop-frame">
+            <div class="desktop-topbar">
+              <div class="tdots"><span></span><span></span><span></span></div>
+              <div class="turl">app.forya.io/dashboard</div>
+            </div>
+            <div class="desktop-body" id="deskStage">
+              <div class="desktop-slide active"><img src="home (dashboard).png" alt="Dashboard Home"></div>
+              <div class="desktop-slide"><img src="schedule (dashboard).png" alt="Dashboard Schedule"></div>
+              <div class="desktop-slide"><img src="inverntory(dashboard).png" alt="Dashboard Inventory"></div>
+              <div class="desktop-slide"><img src="wallet (dashboard).png" alt="Dashboard Wallet"></div>
+              <div class="desktop-slide"><img src="login(dashboard ).png" alt="Dashboard Login"></div>
+            </div>
+          </div>
+          <div class="slide-dots" id="deskDots">
+            <span class="d active"></span><span class="d"></span><span class="d"></span><span class="d"></span><span class="d"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section pricing-section" id="pricing">
+    <div class="wrap">
+      <div class="section-head" style="margin-bottom:32px;">
+        <span class="eyebrow">Simple plans</span>
+        <h2>Priced by stations, not surprises.</h2>
+        <p>Every plan includes live booking, the wallet, and the owner dashboard.</p>
+      </div>
+
+      <div class="billing-toggle">
+        <span class="billing-label active" id="label-monthly" onclick="setBilling('monthly')">Monthly</span>
+        <label class="switch">
+          <input type="checkbox" id="billingSwitch" onchange="toggleBilling(this)">
+          <span class="slider"></span>
+        </label>
+        <span class="billing-label" id="label-yearly" onclick="setBilling('yearly')">Yearly <span class="discount-badge">Save up to 240 EGP</span></span>
+      </div>
+
+      <div class="plans">
+        <div class="plan">
+          <span class="plan-name">Starter</span>
+          <div class="plan-price"><span class="price-val" data-monthly="250" data-yearly="2,880">250</span> EGP<span class="price-period" data-monthly=" / mo" data-yearly=" / yr"> / mo</span></div>
+          <div style="font-size:12.5px; color:#5C6B75; margin-bottom:12px; font-weight:500; min-height:18px;">
+            <span class="discount-text" style="display:none;">Includes 10 EGP/mo discount</span>
+          </div>
+          <p class="plan-desc">For small centers getting off the sticky notes.</p>
+          <ul class="plan-feats">
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="#0EA55A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Live station map</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="#0EA55A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Wallet & points</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="#0EA55A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>1 worker account</li>
+          </ul>
+          <a id="btn-starter" href="contact.html?plan=starter&billing=monthly" class="btn btn-dark" style="background:#0D1B2A;">Start free</a>
+        </div>
+
+        <div class="plan featured">
+          <span class="plan-name">Growth</span>
+          <div class="plan-price"><span class="price-val" data-monthly="500" data-yearly="5,760">500</span> EGP<span class="price-period" data-monthly=" / mo" data-yearly=" / yr"> / mo</span></div>
+          <div style="font-size:12.5px; color:var(--muted); margin-bottom:12px; font-weight:500; min-height:18px;">
+            <span class="discount-text" style="display:none;">Includes 20 EGP/mo discount</span>
+          </div>
+          <p class="plan-desc">For centers running 10–40 stations across shifts.</p>
+          <ul class="plan-feats">
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="#4ADE80" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Everything in Starter</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="#4ADE80" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Unlimited worker accounts</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="#4ADE80" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Host &amp; manage tournaments</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="#4ADE80" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Revenue & occupancy reports</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="#4ADE80" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Priority support</li>
+          </ul>
+          <a id="btn-growth" href="contact.html?plan=growth&billing=monthly" class="btn btn-primary">Start free trial</a>
+        </div>
+
+        <div class="plan">
+          <span class="plan-name">Multi-branch</span>
+          <div class="plan-price">Custom</div>
+          <p class="plan-desc">For groups running several centers under one brand.</p>
+          <ul class="plan-feats">
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="#0EA55A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Everything in Growth</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="#0EA55A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Cross-branch reporting</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="#0EA55A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Dedicated onboarding</li>
+          </ul>
+          <a id="btn-custom" href="contact.html?plan=custom&billing=monthly" class="btn btn-dark" style="background:#0D1B2A;">Talk to us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="cta-banner">
+        <h2>Ready to fill every seat, every night?</h2>
+        <p>Set up your first station map in under ten minutes.</p>
+        <div class="hero-actions">
+          <a href="#pricing" class="btn btn-primary">Start free trial</a>
+          <a href="#how" class="btn btn-dark">See how it works</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="logo">
+          <div class="logo-mark">
+            <img src="logo.png" alt="Forya Logo" style="width:100%; height:100%; object-fit:cover; border-radius:inherit;">
+          </div>
+          Forya
+        </div>
+        <p>The reservation app for gaming centers in Egypt. Reserve in seconds.</p>
+        <button class="footer-switch" data-view-home onclick="switchView('dashboard')">Own a gaming center? Get Forya for Business →</button>
+        <button class="footer-switch" data-view-dashboard hidden onclick="switchView('home')">Looking to book a seat? Get the player app →</button>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col" data-view-home>
+          <h4>Product</h4>
+          <a href="#home-features">Features</a>
+          <a href="#home-how">How it works</a>
+          <a href="#home-product">The app</a>
+        </div>
+        <div class="footer-col" data-view-dashboard hidden>
+          <h4>Product</h4>
+          <a href="#features">Features</a>
+          <a href="#how">How it works</a>
+          <a href="#pricing">Pricing</a>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="#">About</a>
+          <a href="#">Contact</a>
+          <a href="#">Support</a>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Forya. All rights reserved.</span>
+      <span>Cairo, Egypt</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function buildSeatGrid(id, count, litIndexes, seatClass){
+    var el = document.getElementById(id);
+    if(!el) return;
+    var frag = document.createDocumentFragment();
+    for (var i = 0; i < count; i++) {
+      var node = document.createElement('span');
+      node.className = seatClass + (litIndexes.indexOf(i) !== -1 ? ' on' : '');
+      frag.appendChild(node);
+    }
+    el.appendChild(frag);
+  }
+
+  buildSeatGrid('miniGridHome', 18, [1, 4, 8, 9, 13], 'mini-seat');
+  buildSeatGrid('miniGridDash', 18, [2, 5, 9, 14], 'mini-seat');
+  buildSeatGrid('deskGridSlide', 30, [0,1,2,4,5,7,8,10,11,12,14,15,17,20,21,23,24,26], '');
+
+  function buildStationGrid(id, count){
+    var grid = document.getElementById(id);
+    if(!grid) return;
+    var frag = document.createDocumentFragment();
+    for (var i = 0; i < count; i++) {
+      var el = document.createElement('div');
+      el.className = 'station';
+      el.style.setProperty('--i', i);
+      frag.appendChild(el);
+    }
+    grid.appendChild(frag);
+  }
+
+  buildStationGrid('stationGridHome', 32);
+  buildStationGrid('stationGridDash', 32);
+
+  function initSlideshow(stageId, dotsId, slideSelector, interval, captionsId){
+    var stage = document.getElementById(stageId);
+    var dotsWrap = document.getElementById(dotsId);
+    var capsWrap = captionsId ? document.getElementById(captionsId) : null;
+    if(!stage || !dotsWrap) return;
+    var slides = stage.querySelectorAll(slideSelector);
+    var dots = dotsWrap.querySelectorAll('.d');
+    var caps = capsWrap ? capsWrap.querySelectorAll('.c') : [];
+    if(!slides.length) return;
+    var idx = 0;
+    setInterval(function(){
+      slides[idx].classList.remove('active');
+      if (dots[idx]) dots[idx].classList.remove('active');
+      if (caps[idx]) caps[idx].classList.remove('active');
+      idx = (idx + 1) % slides.length;
+      slides[idx].classList.add('active');
+      if (dots[idx]) dots[idx].classList.add('active');
+      if (caps[idx]) caps[idx].classList.add('active');
+    }, interval);
+  }
+
+  initSlideshow('phoneHomeStage', 'phoneHomeDots', '.slide', 3200, 'phoneHomeCaptions');
+  initSlideshow('deskStage', 'deskDots', '.desktop-slide', 3800);
+
+  function switchView(view){
+    var isHome = view !== 'dashboard';
+    document.getElementById('page-home').hidden = !isHome;
+    document.getElementById('page-dashboard').hidden = isHome;
+    document.querySelectorAll('[data-view-home]').forEach(function(el){ el.hidden = !isHome; });
+    document.querySelectorAll('[data-view-dashboard]').forEach(function(el){ el.hidden = isHome; });
+    document.body.dataset.view = isHome ? 'home' : 'dashboard';
+    history.replaceState(null, '', isHome ? location.pathname : '#dashboard');
+    window.scrollTo({top:0, behavior:'auto'});
+  }
+
+  switchView(location.hash === '#dashboard' ? 'dashboard' : 'home');
+
+  function setBilling(type) {
+    var isYearly = type === 'yearly';
+    var switchEl = document.getElementById('billingSwitch');
+    if (switchEl) switchEl.checked = isYearly;
+    updateBillingUI(isYearly);
+  }
+
+  function toggleBilling(checkbox) {
+    updateBillingUI(checkbox.checked);
+  }
+
+  function updateBillingUI(isYearly) {
+    var labelMonthly = document.getElementById('label-monthly');
+    var labelYearly = document.getElementById('label-yearly');
+    if (labelMonthly) labelMonthly.classList.toggle('active', !isYearly);
+    if (labelYearly) labelYearly.classList.toggle('active', isYearly);
+
+    document.querySelectorAll('.price-val').forEach(function(el) {
+      if (el.dataset.yearly && el.dataset.monthly) {
+        el.textContent = isYearly ? el.dataset.yearly : el.dataset.monthly;
+      }
+    });
+    document.querySelectorAll('.price-period').forEach(function(el) {
+      if (el.dataset.yearly && el.dataset.monthly) {
+        el.textContent = isYearly ? el.dataset.yearly : el.dataset.monthly;
+      }
+    });
+    document.querySelectorAll('.discount-text').forEach(function(el) {
+      el.style.display = isYearly ? 'inline' : 'none';
+    });
+
+    var billingParam = isYearly ? 'yearly' : 'monthly';
+    var btnStarter = document.getElementById('btn-starter');
+    if(btnStarter) btnStarter.href = 'contact.html?plan=starter&billing=' + billingParam;
+    var btnGrowth = document.getElementById('btn-growth');
+    if(btnGrowth) btnGrowth.href = 'contact.html?plan=growth&billing=' + billingParam;
+    var btnCustom = document.getElementById('btn-custom');
+    if(btnCustom) btnCustom.href = 'contact.html?plan=custom&billing=' + billingParam;
+  }
+</script>
+
+</body>
+</html>

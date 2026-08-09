@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us — Forya</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <nav class="wrap">
+    <a href="index.html" class="logo">
+      <div class="logo-mark">
+        <img src="logo.png" alt="Forya Logo" style="width:100%; height:100%; object-fit:cover; border-radius:inherit;">
+      </div>
+      Forya
+    </a>
+    <div class="nav-cta">
+      <a href="contact-ar.html" class="btn btn-ghost lang-toggle" style="padding: 11px; font-size: 13px;">العربية</a>
+    </div>
+  </nav>
+</header>
+<main>
+  <div class="wrap">
+    <div class="form-container">
+      <h2>Get started with Forya</h2>
+      <p>Fill out the form below and our team will contact you within 4-6 hours to set up your account.</p>
+      <form id="foryaContactForm">
+        <div class="form-group">
+          <label for="contactName">Full Name</label>
+          <input type="text" id="contactName" name="name" required placeholder="John Doe">
+        </div>
+        <div class="form-group">
+          <label for="contactBusiness">Business Name</label>
+          <input type="text" id="contactBusiness" name="business" required placeholder="Cyber Nova Gaming">
+        </div>
+        <div class="form-group">
+          <label for="contactPhone">Phone Number</label>
+          <input type="tel" id="contactPhone" name="phone" required placeholder="01X XXXX XXXX">
+        </div>
+        <div class="form-group">
+          <label for="contactEmail">Email Address</label>
+          <input type="email" id="contactEmail" name="email" required placeholder="john@example.com">
+        </div>
+        <button type="submit" class="btn btn-primary form-submit">Submit Request</button>
+      </form>
+    </div>
+  </div>
+</main>
+
+<!-- Firebase SDKs -->
+<script defer src="/__/firebase/12.16.0/firebase-app-compat.js"></script>
+<script defer src="/__/firebase/12.16.0/firebase-firestore-compat.js"></script>
+<script defer src="/__/firebase/init.js?useEmulator=true"></script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const plan = urlParams.get('plan') || 'none';
+    const billing = urlParams.get('billing') || 'none';
+
+    const form = document.getElementById('foryaContactForm');
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const submitBtn = form.querySelector('.form-submit');
+      const originalText = submitBtn.textContent;
+      submitBtn.textContent = 'Submitting...';
+      submitBtn.disabled = true;
+
+      const data = {
+        name: document.getElementById('contactName').value,
+        businessName: document.getElementById('contactBusiness').value,
+        phone: document.getElementById('contactPhone').value,
+        email: document.getElementById('contactEmail').value,
+        package: plan,
+        billing: billing,
+        timestamp: firebase.firestore.FieldValue.serverTimestamp()
+      };
+
+      firebase.firestore().collection('leads').add(data)
+        .then(() => {
+          alert('Request submitted successfully! Our team will contact you soon.');
+          window.location.href = 'index.html';
+        })
+        .catch((error) => {
+          console.error('Error adding document: ', error);
+          alert('Error submitting request. Please try again or contact us directly.');
+          submitBtn.textContent = originalText;
+          submitBtn.disabled = false;
+        });
+    });
+  });
+</script>
+</body>
+</html>
